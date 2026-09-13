@@ -1,6 +1,4 @@
-# ============================================================
 # EJERCICIO 1 — Validador de notas con promedio
-# ============================================================
 
 # PASO 1. ENTENDER (Entrada, Proceso y Salida)
 
@@ -74,9 +72,7 @@ print(cal.promedio())
 # promedio()                              [85,92,78,88]          85.75
 
 
-# ============================================================
 # EJERCICIO 2 — Contador de palabras únicas
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -136,9 +132,7 @@ print(at.contar_palabras())
 # contar_palabras() = 2
 
 
-# ============================================================
 # EJERCICIO 3 — Gestor de compras con totales
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -207,9 +201,7 @@ print(carro.articulos_por_rango(2.60,3.20))
 # rango(2.60,3.20)        igual                              ["leche"]
 
 
-# ============================================================
 # EJERCICIO 4 — Inversor de secuencias
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -275,9 +267,7 @@ print(inversor.invertir_multiples([1,2,3],[4,5,6]))
 # 0      1              [3,2,1]
 
 
-# ============================================================
 # EJERCICIO 5 — Detector de números pares e impares
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -352,9 +342,7 @@ print(an.cantidad_pares_impares())
 # 5           impar       [2,4]       [1,3,5]
 
 
-# ============================================================
 # EJERCICIO 6 — Estadísticas de temperatura
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -418,9 +406,7 @@ print(gt.promedio())
 # [20,25,18,30]          18           30           23.25
 
 
-# ============================================================
 # EJERCICIO 7 — Mapeador de edades
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -496,9 +482,7 @@ print(gp.edad_promedio())
 # Promedio: 22.5
 
 
-# ============================================================
 # EJERCICIO 8 — Asignador de equipos
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -570,9 +554,7 @@ print(eq.equipo_mayor_integrantes())
 # Mayor: A
 
 
-# ============================================================
 # EJERCICIO 9 — Validador de caracteres
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -660,9 +642,7 @@ print(astr.texto_mas_largo)
 # 3          dígito
 
 
-# ============================================================
 # EJERCICIO 10 — Gestor de tareas con prioridad
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -736,9 +716,7 @@ print(t.tareas)
 # Eliminar Leer       [("Estudiar","alta")]
 
 
-# ============================================================
 # EJERCICIO 11 — Contador de frecuencia
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -813,9 +791,7 @@ print(cf.frecuencia_elemento("a"))
 # Mayor         "a"
 
 
-# ============================================================
 # EJERCICIO 12 — Selector de rango con tuplas
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -881,9 +857,7 @@ print(sr.elementos_en_multiples_rangos((1,3),(2,4)))
 # (2,4)        (2,3,4)      [1,2,3,4]
 
 
-# ============================================================
 # EJERCICIO 13 — Combinador de listas
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -960,9 +934,7 @@ print(cl.intercalar_multiples([1,2],[3,4],[5,6]))
 # 1      2              4              [1,3,2,4]
 
 
-# ============================================================
 # EJERCICIO 14 — Mapeo de estudiantes a notas
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -1039,9 +1011,7 @@ print(rn.mejor_estudiante())
 # Mejor: ("Ana",95)
 
 
-# ============================================================
 # EJERCICIO 15 — Divisores de un número
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -1120,9 +1090,7 @@ print(df.encontrar_multiples_divisores(6,12,15))
 # es_perfecto(6)          -> True
 
 
-# ============================================================
 # EJERCICIO 16 — Codificador César
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -1203,9 +1171,7 @@ print(cc.historial)
 # Palabra final: krod
 
 
-# ============================================================
 # EJERCICIO 17 — Grupo de edades
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -1289,9 +1255,7 @@ print(ae.edad_promedio_categoria("adulto"))
 # 70        mayor
 
 
-# ============================================================
 # EJERCICIO 18 — Matriz de distancias
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -1370,9 +1334,7 @@ print(cd.distancias)
 # Más cercano a (0,0): (1,1)
 
 
-# ============================================================
 # EJERCICIO 19 — Inventario de productos
-# ============================================================
 
 # PASO 1. ENTENDER
 
@@ -1451,9 +1413,7 @@ print(inventario.productos)
 # bajo stock 25        20          ["pan"]
 
 
-# ============================================================
 # EJERCICIO 20 — Analizador de patrones en textos
-# ============================================================
 
 # PASO 1. ENTENDER
 
