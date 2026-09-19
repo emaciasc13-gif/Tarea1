@@ -1,44 +1,4 @@
-# EJERCICIO 1 — Validador de notas con promedio
-
-# PASO 1. ENTENDER (Entrada, Proceso y Salida)
-
-# Entrada:
-# Una o varias notas.
-
-# Proceso:
-# Validar que cada nota esté entre 0 y 100.
-# Guardar solamente las notas válidas.
-# Calcular el promedio de las notas guardadas.
-
-# Salida:
-# Lista de notas válidas y promedio.
-
-# Ejemplo:
-# 85, 92, 110, 78, -5, 88
-# Válidas: [85, 92, 78, 88]
-# Promedio: 85.75
-
-# PASO 2. BOSQUEJO A MANO
-
-# 85  -> válida
-# 92  -> válida
-# 110 -> inválida
-# 78  -> válida
-# -5  -> inválida
-# 88  -> válida
-
-# Suma = 85 + 92 + 78 + 88 = 343
-# Cantidad = 4
-# Promedio = 343 / 4 = 85.75
-
-# PASO 3. PATRÓN
-
-# validar_nota() revisa una nota.
-# cargar_notas() reutiliza validar_nota() para varias notas.
-# self.notas guarda las notas válidas.
-# promedio() usa sum() y len().
-
-# PASO 4. CÓDIGO
+# EJERCICIO 1
 
 class Calificador:
     def __init__(self):
@@ -64,43 +24,8 @@ cal = Calificador()
 print(cal.cargar_notas(85,92,110,78,-5,88))
 print(cal.promedio())
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Acción                                  Lista                  Salida
-# Calificador()                           []                     -
-# cargar_notas(85,92,110,78,-5,88)       [85,92,78,88]          [85,92,78,88]
-# promedio()                              [85,92,78,88]          85.75
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 2 — Contador de palabras únicas
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Palabras individuales o varias palabras.
-
-# Proceso:
-# Guardar las palabras en una lista y también en un conjunto.
-# El conjunto evita duplicados.
-
-# Salida:
-# Lista de palabras y cantidad de palabras únicas.
-
-# PASO 2. BOSQUEJO
-
-# "hola"  -> lista ["hola"]               conjunto {"hola"}
-# "mundo" -> lista ["hola","mundo"]       conjunto {"hola","mundo"}
-# "hola"  -> lista ["hola","mundo","hola"] conjunto {"hola","mundo"}
-# Únicas = 2
-
-# PASO 3. PATRÓN
-
-# agregar_palabra() agrega en las dos colecciones.
-# agregar_multiples() reutiliza agregar_palabra().
-# contar_palabras() cuenta el conjunto.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 2
 
 class AnalizadorTexto:
     def __init__(self):
@@ -124,47 +49,8 @@ at = AnalizadorTexto()
 print(at.agregar_multiples("hola","mundo","hola"))
 print(at.contar_palabras())
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Palabra   Lista                         Conjunto
-# hola      ["hola"]                      {"hola"}
-# mundo     ["hola","mundo"]              {"hola","mundo"}
-# hola      ["hola","mundo","hola"]       {"hola","mundo"}
-# contar_palabras() = 2
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 3 — Gestor de compras con totales
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Nombre de artículo y precio.
-
-# Proceso:
-# Guardar nombre -> precio en un diccionario.
-# Sumar precios y filtrar artículos por rango.
-
-# Salida:
-# Total y lista de artículos en un rango.
-
-# PASO 2. BOSQUEJO
-
-# pan = 2.50
-# leche = 3.00
-# Total = 5.50
-
-# Rango 2.60 a 3.20:
-# pan   -> no entra
-# leche -> sí entra
-
-# PASO 3. PATRÓN
-
-# agregar_articulo() guarda una clave y un valor.
-# total_carrito() recorre los valores.
-# articulos_por_rango() recorre items().
-
-# PASO 4. CÓDIGO
+# EJERCICIO 3
 
 class CarroCompras:
     def __init__(self):
@@ -194,45 +80,8 @@ carro.agregar_articulo("leche",3.00)
 print(carro.total_carrito())
 print(carro.articulos_por_rango(2.60,3.20))
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Acción                  Diccionario                         Salida
-# agregar pan             {"pan":2.50}                       -
-# agregar leche           {"pan":2.50,"leche":3.00}          -
-# total_carrito()         igual                              5.5
-# rango(2.60,3.20)        igual                              ["leche"]
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 4 — Inversor de secuencias
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Una lista o varias listas.
-
-# Proceso:
-# Recorrer la lista desde la última posición hasta la primera.
-
-# Salida:
-# Lista invertida o diccionario con varias listas invertidas.
-
-# PASO 2. BOSQUEJO
-
-# Lista: [1,2,3]
-# Índice 2 -> 3
-# Índice 1 -> 2
-# Índice 0 -> 1
-# Resultado: [3,2,1]
-
-# PASO 3. PATRÓN
-
-# Se empieza en len(lista)-1.
-# Se va restando 1 al índice.
-# invertir_multiples() reutiliza invertir_lista().
-# Se usa tuple(lista) como clave porque una lista no puede ser clave.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 4
 
 class InversorSecuencia:
     def __init__(self):
@@ -262,47 +111,8 @@ inversor = InversorSecuencia()
 print(inversor.invertir_lista([1,2,3]))
 print(inversor.invertir_multiples([1,2,3],[4,5,6]))
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# i      Elemento       Resultado
-# 2      3              [3]
-# 1      2              [3,2]
-# 0      1              [3,2,1]
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 5 — Detector de números pares e impares
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Varios números.
-
-# Proceso:
-# Comprobar si cada número es divisible para 2.
-
-# Salida:
-# Diccionario con pares e impares y una tupla con cantidades.
-
-# PASO 2. BOSQUEJO
-
-# 1 -> impar
-# 2 -> par
-# 3 -> impar
-# 4 -> par
-# 5 -> impar
-
-# Pares: [2,4]
-# Impares: [1,3,5]
-# Cantidades: (2,3)
-
-# PASO 3. PATRÓN
-
-# es_par() usa numero % 2.
-# separar() reutiliza es_par().
-# cantidad_pares_impares() usa len().
-
-# PASO 4. CÓDIGO
+# EJERCICIO 5
 
 class AnalizadorNumeros:
     def __init__(self):
@@ -336,45 +146,8 @@ an = AnalizadorNumeros()
 print(an.separar(1,2,3,4,5))
 print(an.cantidad_pares_impares())
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Número      Tipo        Pares       Impares
-# 1           impar       []          [1]
-# 2           par         [2]         [1]
-# 3           impar       [2]         [1,3]
-# 4           par         [2,4]       [1,3]
-# 5           impar       [2,4]       [1,3,5]
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 6 — Estadísticas de temperatura
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Temperaturas individuales o varias.
-
-# Proceso:
-# Guardar temperaturas y calcular mínima, máxima y promedio.
-
-# Salida:
-# Lista y estadísticas.
-
-# PASO 2. BOSQUEJO
-
-# [20,25,18,30]
-# Mínima = 18
-# Máxima = 30
-# Suma = 93
-# Promedio = 93 / 4 = 23.25
-
-# PASO 3. PATRÓN
-
-# registrar_temperatura() agrega un valor.
-# registrar_multiples() reutiliza el método anterior.
-# min(), max(), sum() y len() calculan las estadísticas.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 6
 
 class GestorTemperatura:
     def __init__(self):
@@ -405,47 +178,8 @@ print(gt.minima())
 print(gt.maxima())
 print(gt.promedio())
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Temperaturas           Mínima       Máxima       Promedio
-# [20,25,18,30]          18           30           23.25
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 7 — Mapeador de edades
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Nombres y edades.
-
-# Proceso:
-# Guardar nombre -> edad.
-# Filtrar por edad mínima.
-# Calcular promedio de edades.
-
-# Salida:
-# Lista filtrada y promedio.
-
-# PASO 2. BOSQUEJO
-
-# Ana = 28
-# Bob = 17
-
-# Edad mínima = 18
-# Ana entra.
-# Bob no entra.
-# Resultado: ["Ana"]
-
-# Promedio = (28 + 17) / 2 = 22.5
-
-# PASO 3. PATRÓN
-
-# agregar_persona() guarda en diccionario.
-# personas_mayores() usa items().
-# edad_promedio() recorre values().
-
-# PASO 4. CÓDIGO
+# EJERCICIO 7
 
 class GestorPersonas:
     def __init__(self):
@@ -479,46 +213,8 @@ gp.agregar_persona("Bob",17)
 print(gp.personas_mayores(18))
 print(gp.edad_promedio())
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Persona      Edad      ¿>=18?
-# Ana          28        Sí
-# Bob          17        No
-# Resultado: ["Ana"]
-# Promedio: 22.5
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 8 — Asignador de equipos
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Nombre del equipo y jugadores.
-
-# Proceso:
-# Crear equipos con listas vacías.
-# Agregar jugadores.
-# Comparar cuántos jugadores tiene cada equipo.
-
-# Salida:
-# Nombre del equipo con más integrantes.
-
-# PASO 2. BOSQUEJO
-
-# A = [Juan, Pedro]
-# B = [Carlos]
-# A tiene 2.
-# B tiene 1.
-# Mayor = A
-
-# PASO 3. PATRÓN
-
-# Cada equipo es una clave.
-# Cada valor es una lista.
-# len(jugadores) permite comparar cantidades.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 8
 
 class Equipos:
     def __init__(self):
@@ -553,54 +249,8 @@ eq.agregar_jugador("B","Carlos")
 print(eq.equipos)
 print(eq.equipo_mayor_integrantes())
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Equipo      Jugadores             Cantidad
-# A           [Juan,Pedro]          2
-# B           [Carlos]              1
-# Mayor: A
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 9 — Validador de caracteres
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Un texto.
-
-# Proceso:
-# Recorrer carácter por carácter.
-# Contar vocales, consonantes y dígitos.
-# Guardar el texto más largo analizado.
-
-# Salida:
-# Diccionario con cantidades.
-
-# PASO 2. BOSQUEJO
-
-# "Hola123"
-# H -> consonante
-# o -> vocal
-# l -> consonante
-# a -> vocal
-# 1 -> dígito
-# 2 -> dígito
-# 3 -> dígito
-
-# Resultado:
-# vocales = 2
-# consonantes = 2
-# dígitos = 3
-
-# PASO 3. PATRÓN
-
-# solo_vocales() reconoce a,e,i,o,u.
-# contar_por_tipo() recorre el texto.
-# isdigit() identifica números.
-# isalpha() identifica letras.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 9
 
 class AnalizadorString:
     def __init__(self):
@@ -638,50 +288,8 @@ astr = AnalizadorString()
 print(astr.contar_por_tipo("Hola123"))
 print(astr.texto_mas_largo)
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Carácter   Tipo
-# H          consonante
-# o          vocal
-# l          consonante
-# a          vocal
-# 1          dígito
-# 2          dígito
-# 3          dígito
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 10 — Gestor de tareas con prioridad
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Descripción y prioridad.
-
-# Proceso:
-# Guardar tuplas, filtrar prioridad alta y eliminar tareas.
-
-# Salida:
-# Lista de prioritarias y True/False al eliminar.
-
-# PASO 2. BOSQUEJO
-
-# ("Estudiar","alta")
-# ("Leer","baja")
-
-# Prioridad alta:
-# [("Estudiar","alta")]
-
-# Eliminar "Leer":
-# queda [("Estudiar","alta")]
-
-# PASO 3. PATRÓN
-
-# Cada tarea es una tupla.
-# tarea[0] es descripción.
-# tarea[1] es prioridad.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 10
 
 class Tareas:
     def __init__(self):
@@ -716,44 +324,8 @@ print(t.tareas_prioritarias())
 print(t.eliminar_completada("Leer"))
 print(t.tareas)
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Acción              Lista de tareas
-# Agregar Estudiar    [("Estudiar","alta")]
-# Agregar Leer        [("Estudiar","alta"),("Leer","baja")]
-# Prioritarias        [("Estudiar","alta")]
-# Eliminar Leer       [("Estudiar","alta")]
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 11 — Contador de frecuencia
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Elementos.
-
-# Proceso:
-# Contar cuántas veces aparece cada elemento.
-
-# Salida:
-# Elemento más frecuente y frecuencia de un elemento.
-
-# PASO 2. BOSQUEJO
-
-# a -> {"a":1}
-# b -> {"a":1,"b":1}
-# a -> {"a":2,"b":1}
-
-# Más frecuente = "a"
-
-# PASO 3. PATRÓN
-
-# Si existe se suma 1.
-# Si no existe se crea con 1.
-# Para encontrar el mayor se comparan cantidades.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 11
 
 class ContadorFrecuencia:
     def __init__(self):
@@ -792,42 +364,8 @@ print(cf.frecuencias)
 print(cf.elemento_mas_frecuente())
 print(cf.frecuencia_elemento("a"))
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Acción        Frecuencias
-# agregar a     {"a":1}
-# agregar b     {"a":1,"b":1}
-# agregar a     {"a":2,"b":1}
-# Mayor         "a"
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 12 — Selector de rango con tuplas
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Pares (inicio,fin).
-
-# Proceso:
-# Crear rangos, convertirlos en tuplas y unirlos sin duplicados.
-
-# Salida:
-# Tupla o lista de elementos únicos.
-
-# PASO 2. BOSQUEJO
-
-# (1,3) -> (1,2,3)
-# (2,4) -> (2,3,4)
-# Unión sin repetir -> [1,2,3,4]
-
-# PASO 3. PATRÓN
-
-# crear_rango() genera los números.
-# elementos_en_multiples_rangos() reutiliza crear_rango().
-# El conjunto evita repetir números.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 12
 
 class SelectorRango:
     def __init__(self):
@@ -861,44 +399,8 @@ sr = SelectorRango()
 print(sr.crear_rango(1,3))
 print(sr.elementos_en_multiples_rangos((1,3),(2,4)))
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Rango        Tupla        Resultado acumulado
-# (1,3)        (1,2,3)      [1,2,3]
-# (2,4)        (2,3,4)      [1,2,3,4]
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 13 — Combinador de listas
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Dos o más listas.
-
-# Proceso:
-# Alternar los elementos usando índices.
-
-# Salida:
-# Lista intercalada.
-
-# PASO 2. BOSQUEJO
-
-# Lista1 = [1,2]
-# Lista2 = [3,4]
-
-# Posición 0 -> 1,3
-# Posición 1 -> 2,4
-
-# Resultado = [1,3,2,4]
-
-# PASO 3. PATRÓN
-
-# Se usa el mismo índice para las dos listas.
-# Primero se agrega lista1[i] y después lista2[i].
-# intercalar_multiples() reutiliza intercalar().
-
-# PASO 4. CÓDIGO
+# EJERCICIO 13
 
 class CombinadorListas:
     def __init__(self):
@@ -939,47 +441,8 @@ cl = CombinadorListas()
 print(cl.intercalar([1,2],[3,4]))
 print(cl.intercalar_multiples([1,2],[3,4],[5,6]))
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# i      lista1[i]      lista2[i]      Resultado
-# 0      1              3              [1,3]
-# 1      2              4              [1,3,2,4]
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 14 — Mapeo de estudiantes a notas
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Estudiante y nota.
-
-# Proceso:
-# Guardar estudiante -> nota.
-# Buscar aprobados.
-# Buscar la nota mayor.
-
-# Salida:
-# Lista de aprobados y tupla del mejor estudiante.
-
-# PASO 2. BOSQUEJO
-
-# Ana = 95
-# Bob = 70
-
-# Nota mínima = 75
-# Ana aprueba.
-# Bob no aprueba.
-
-# Mejor = ("Ana",95)
-
-# PASO 3. PATRÓN
-
-# registrar() guarda en diccionario.
-# estudiantes_aprobados() compara la nota.
-# mejor_estudiante() guarda la mejor nota encontrada.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 14
 
 class RegistroNotas:
     def __init__(self):
@@ -1016,46 +479,8 @@ rn.registrar("Bob",70)
 print(rn.estudiantes_aprobados(75))
 print(rn.mejor_estudiante())
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Estudiante     Nota      Aprobado
-# Ana            95        Sí
-# Bob            70        No
-# Mejor: ("Ana",95)
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 15 — Divisores de un número
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Uno o varios números.
-
-# Proceso:
-# Encontrar divisores usando módulo.
-# Verificar si un número es perfecto.
-
-# Salida:
-# Tupla de divisores, True/False y diccionario.
-
-# PASO 2. BOSQUEJO
-
-# 12:
-# divisores = 1,2,3,4,6,12
-
-# 6:
-# divisores propios = 1,2,3
-# suma = 6
-# Es perfecto = True
-
-# PASO 3. PATRÓN
-
-# Si numero % i == 0, i es divisor.
-# es_perfecto() reutiliza encontrar_divisores().
-# encontrar_multiples_divisores() guarda número -> divisores.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 15
 
 class DivisorFinder:
     def __init__(self):
@@ -1098,48 +523,8 @@ print(df.encontrar_divisores(12))
 print(df.es_perfecto(6))
 print(df.encontrar_multiples_divisores(6,12,15))
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# encontrar_divisores(12) -> (1,2,3,4,6,12)
-# es_perfecto(6)          -> True
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 16 — Codificador César
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Letra o palabra y desplazamiento.
-
-# Proceso:
-# Convertir una letra a código, desplazarla y regresar a carácter.
-
-# Salida:
-# Palabra codificada e historial.
-
-# PASO 2. BOSQUEJO
-
-# "hola", desplazamiento 3
-
-# h -> k
-# o -> r
-# l -> o
-# a -> d
-
-# Resultado: "krod"
-
-# NOTA:
-# La guía muestra "kroc" como ejemplo aproximado.
-# Con César de desplazamiento 3, el resultado de "hola" es "krod".
-
-# PASO 3. PATRÓN
-
-# Cada letra se procesa igual.
-# codificar_palabra() reutiliza codificar_letra().
-# % 26 mantiene el resultado dentro del alfabeto.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 16
 
 class CodificadorCesar:
     def __init__(self):
@@ -1176,54 +561,8 @@ cc = CodificadorCesar()
 print(cc.codificar_palabra("hola",3))
 print(cc.historial)
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Letra      Desplazamiento      Resultado
-# h          3                   k
-# o          3                   r
-# l          3                   o
-# a          3                   d
-# Palabra final: krod
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 17 — Grupo de edades
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Varias edades.
-
-# Proceso:
-# Clasificar cada edad y guardarla en su categoría.
-
-# Salida:
-# Diccionario agrupado y promedio por categoría.
-
-# IMPORTANTE:
-# La guía no especifica los límites exactos de las categorías.
-# Para que el ejercicio pueda ejecutarse se usa:
-# menor de 12  -> niño
-# 12 a 17      -> adolescente
-# 18 a 64      -> adulto
-# 65 o más     -> mayor
-
-# Si el profesor dio otros límites, solo se cambian estos if/elif.
-
-# PASO 2. BOSQUEJO
-
-# 5  -> niño
-# 15 -> adolescente
-# 30 -> adulto
-# 70 -> mayor
-
-# PASO 3. PATRÓN
-
-# clasificar_edad() usa if/elif/else.
-# agrupar_por_categoria() reutiliza clasificar_edad().
-# Cada categoría contiene una lista.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 17
 
 class AgrupadorEdades:
     def __init__(self):
@@ -1262,47 +601,8 @@ ae = AgrupadorEdades()
 print(ae.agrupar_por_categoria(5,15,30,70))
 print(ae.edad_promedio_categoria("adulto"))
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Edad      Categoría
-# 5         niño
-# 15        adolescente
-# 30        adulto
-# 70        mayor
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 18 — Matriz de distancias
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Puntos como tuplas (x,y).
-
-# Proceso:
-# Calcular distancia euclidiana.
-# Guardar las distancias.
-# Comparar para obtener el punto más cercano.
-
-# Salida:
-# Distancia y punto más cercano.
-
-# PASO 2. BOSQUEJO
-
-# p1 = (0,0)
-# p2 = (3,4)
-
-# (3-0)^2 = 9
-# (4-0)^2 = 16
-# 9 + 16 = 25
-# raíz = 5
-
-# PASO 3. PATRÓN
-
-# Cada punto tiene x en [0] e y en [1].
-# punto_mas_cercano() reutiliza distancia_euclidiana().
-
-# PASO 4. CÓDIGO
+# EJERCICIO 18
 
 class CalculadorDistancia:
     def __init__(self):
@@ -1341,51 +641,8 @@ print(cd.distancia_euclidiana((0,0),(3,4)))
 print(cd.punto_mas_cercano((0,0),(5,5),(1,1),(10,10)))
 print(cd.distancias)
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Punto                    Distancia aproximada
-# (3,4)                    5.0
-# (5,5)                    7.07
-# (1,1)                    1.41
-# (10,10)                  14.14
-# Más cercano a (0,0): (1,1)
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 19 — Inventario de productos
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Producto y cantidad.
-
-# Proceso:
-# Agregar stock, restar si existe suficiente y buscar bajo stock.
-
-# Salida:
-# True/False y lista de productos con bajo stock.
-
-# PASO 2. BOSQUEJO
-
-# pan = 50
-# restar 30
-# queda 20
-
-# Si mínimo = 25:
-# 20 < 25 -> pan está bajo stock.
-
-# NOTA:
-# En la guía aparece mínimo 15 y salida ["pan"] después de quedar 20.
-# Matemáticamente 20 < 15 es falso.
-# Por eso aquí se usa mínimo 25 para que el ejemplo sea coherente.
-
-# PASO 3. PATRÓN
-
-# Cada producto es una clave.
-# La cantidad es el valor.
-# Antes de restar se valida que exista suficiente stock.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 19
 
 class Inventario:
     def __init__(self):
@@ -1423,64 +680,8 @@ print(inventario.restar_stock("pan",30))
 print(inventario.productos_bajo_stock(25))
 print(inventario.productos)
 
-# PASO 5. PRUEBA DE ESCRITORIO
 
-# Acción               Stock       Salida
-# agregar pan 50       50          -
-# restar 30            20          True
-# bajo stock 25        20          ["pan"]
-
-#--------------------------------------------------------------------------------------------------------------
-
-# EJERCICIO 20 — Analizador de patrones en textos
-
-# PASO 1. ENTENDER
-
-# Entrada:
-# Texto y patrón.
-
-# Proceso:
-# Separar palabras, buscar las que empiezan con un patrón,
-# agrupar por longitud y obtener palabras sin repetir.
-
-# Salida:
-# Lista, diccionario y conjunto.
-
-# PASO 2. BOSQUEJO
-
-# Texto: "casa carro perro camino"
-# Patrón: "ca"
-
-# casa   -> sí
-# carro  -> sí
-# perro  -> no
-# camino -> sí
-
-# Resultado:
-# ["casa","carro","camino"]
-
-# Para "el gato está aquí":
-# el   -> longitud 2
-# gato -> longitud 4
-# está -> longitud 4
-# aquí -> longitud 4
-
-# Resultado correcto en Python:
-# {2:["el"], 4:["gato","está","aquí"]}
-
-# NOTA:
-# La salida de ejemplo de la guía tiene claves repetidas y longitudes
-# que no coinciden con len(). Un diccionario no puede tener dos claves
-# iguales, por eso aquí se agrupan juntas las palabras de igual longitud.
-
-# PASO 3. PATRÓN
-
-# split() separa el texto.
-# startswith() revisa el inicio de una palabra.
-# len() obtiene la longitud.
-# set() elimina duplicados.
-
-# PASO 4. CÓDIGO
+# EJERCICIO 20
 
 class AnalizadorPatrones:
     def __init__(self):
@@ -1523,10 +724,3 @@ ap = AnalizadorPatrones()
 print(ap.encontrar_palabras("casa carro perro camino","ca"))
 print(ap.agrupar_por_longitud("el gato está aquí"))
 print(ap.palabras_unicas())
-
-# PASO 5. PRUEBA DE ESCRITORIO
-
-# Acción                            Salida
-# buscar patrón "ca"                ["casa","carro","camino"]
-# agrupar "el gato está aquí"       {2:["el"],4:["gato","está","aquí"]}
-# palabras_unicas()                 conjunto sin repetidos
