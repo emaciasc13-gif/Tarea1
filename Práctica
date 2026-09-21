@@ -1,0 +1,586 @@
+# EJERCICIO 1 — CONTROL DE EDADES
+
+class ControlEdades:
+    def __init__(self):
+        self.edades = []
+
+    def validar_edad(self, edad):
+        if edad >= 0 and edad <= 120:
+            return True
+        else:
+            return False
+
+    def cargar_variasedades(self, *args):
+        for edad in args:
+            if self.validar_edad(edad) == True:
+                self.edades.append(edad)
+
+        return self.edades
+
+    def calcular_promedio(self):
+        suma_edades = 0
+        promedio_edades = 0
+
+        for edad in self.edades:
+            suma_edades = suma_edades + edad
+
+        promedio_edades = suma_edades / len(self.edades)
+
+        return promedio_edades
+
+
+# EJERCICIO 2 — GESTOR DE COLORES
+
+class GestorColores:
+    def __init__(self):
+        self.lista_colores = []
+        self.conjunto_colores = set()
+
+    def agregar_color(self, color):
+        self.lista_colores.append(color)
+        self.conjunto_colores.add(color)
+
+    def colores_unicos(self):
+        return len(self.conjunto_colores)
+
+    def agregar_varios(self, *args):
+        for color in args:
+            self.agregar_color(color)
+
+
+# EJERCICIO 3 — TIENDA DE PRODUCTOS
+
+class tienda:
+    def __init__(self):
+        self.productos = {}
+
+    def agregar_productos(self, producto, precio):
+        self.productos[producto] = precio
+
+    def suma_precios(self):
+        suma_precios = 0
+
+        for producto, precio in self.productos.items():
+            suma_precios = suma_precios + precio
+
+        return suma_precios
+
+    def total_precios(self, valor):
+        productos_encontrados = []
+
+        for producto, precio in self.productos.items():
+            if precio <= valor:
+                productos_encontrados.append(producto)
+
+        return productos_encontrados
+
+
+# EJERCICIO 4 — ROTADOR DE LISTAS
+
+class RotadorLista:
+    def __init__(self):
+        self.listas_rotadas = {}
+
+    def mover_alfinal(self, lista):
+        lista_rotada = []
+
+        posicion = 1
+
+        while posicion < len(lista):
+            lista_rotada.append(lista[posicion])
+            posicion = posicion + 1
+
+        lista_rotada.append(lista[0])
+
+        return lista_rotada
+
+    def varias_lista(self, *args):
+        for lista in args:
+            self.listas_rotadas[tuple(lista)] = self.mover_alfinal(lista)
+
+        return self.listas_rotadas
+
+
+# EJERCICIO 5 — CLASIFICADOR DE NÚMEROS
+
+class clasificadornumeros:
+    def __init__(self):
+        self.numeros_clasificados = {
+            "positivos": [],
+            "negativos": [],
+            "ceros": []
+        }
+
+    def clasificador(self, numero):
+        if numero > 0:
+            return "positivo"
+        elif numero < 0:
+            return "negativo"
+        else:
+            return "cero"
+
+    def varios_numeros(self, *args):
+        for numero in args:
+            if self.clasificador(numero) == "positivo":
+                self.numeros_clasificados["positivos"].append(numero)
+
+            elif self.clasificador(numero) == "negativo":
+                self.numeros_clasificados["negativos"].append(numero)
+
+            else:
+                self.numeros_clasificados["ceros"].append(numero)
+
+        return self.numeros_clasificados
+
+    def cantidad(self):
+        cantidad_positivos = len(self.numeros_clasificados["positivos"])
+        cantidad_negativos = len(self.numeros_clasificados["negativos"])
+        cantidad_ceros = len(self.numeros_clasificados["ceros"])
+
+        return (cantidad_positivos, cantidad_negativos, cantidad_ceros)
+
+
+# EJERCICIO 6 — REGISTRO DE LLUVIAS
+
+class registrolluvias:
+    def __init__(self):
+        self.lluvias = []
+
+    def registrar_lluvia(self, cantidad):
+        self.lluvias.append(cantidad)
+
+    def calcular(self):
+        lluvia_maxima = max(self.lluvias)
+        lluvia_minima = min(self.lluvias)
+        promedio_lluvia = sum(self.lluvias) / len(self.lluvias)
+
+        return lluvia_maxima, lluvia_minima, promedio_lluvia
+
+    def varias(self, *args):
+        for cantidad in args:
+            self.registrar_lluvia(cantidad)
+
+        return self.lluvias
+
+
+# EJERCICIO 7 — AGENDA DE CONTACTOS
+
+class agendacontactos:
+    def __init__(self):
+        self.contactos = {}
+
+    def agregar_contacto(self, nombre, numero):
+        self.contactos[nombre] = numero
+
+    def buscar_numero(self, nombre):
+        for nombre_contacto, numero in self.contactos.items():
+            if nombre_contacto == nombre:
+                return numero
+
+    def buscar_nombre(self, letra):
+        nombres_encontrados = []
+
+        for nombre in self.contactos.keys():
+            if nombre[0].lower() == letra.lower():
+                nombres_encontrados.append(nombre)
+
+        return nombres_encontrados
+
+
+# EJERCICIO 8 — CURSOS Y ESTUDIANTES
+
+class cursos:
+    def __init__(self):
+        self.cursos_registrados = {}
+
+    def crear_curso(self, curso):
+        self.cursos_registrados[curso] = []
+
+    def agregar_estudiante(self, curso, nombre):
+        if curso not in self.cursos_registrados:
+            self.crear_curso(curso)
+
+        self.cursos_registrados[curso].append(nombre)
+
+    def menor_integrantes(self):
+        curso_menor = ""
+        cantidad_menor = None
+
+        for curso, estudiantes in self.cursos_registrados.items():
+            if cantidad_menor == None or len(estudiantes) < cantidad_menor:
+                curso_menor = curso
+                cantidad_menor = len(estudiantes)
+
+        return curso_menor
+
+
+# EJERCICIO 9 — ANALIZADOR DE CARACTERES
+
+class analizador_caracteres:
+    def __init__(self):
+        self.ultimo_texto = ""
+
+    def comprobar(self, caracter):
+        if caracter != caracter.lower():
+            return True
+        else:
+            return False
+
+    def analizar_texto(self, texto):
+        conteo_caracteres = {
+            "mayusculas": 0,
+            "minusculas": 0,
+            "digitos": 0
+        }
+
+        self.ultimo_texto = texto
+
+        for caracter in texto:
+            if self.comprobar(caracter):
+                conteo_caracteres["mayusculas"] += 1
+
+            else:
+                if caracter.isalpha():
+                    conteo_caracteres["minusculas"] += 1
+
+                elif caracter.isdigit():
+                    conteo_caracteres["digitos"] += 1
+
+        return conteo_caracteres
+
+
+# EJERCICIO 10 — RECORDATORIOS
+
+class recordatorios:
+    def __init__(self):
+        self.recordatorios = []
+
+    def agregar_recordatorio(self, texto, estado):
+        self.recordatorios.append((texto, estado))
+
+    def estado_pendiente(self):
+        recordatorios_pendientes = []
+
+        for recordatorio in self.recordatorios:
+            if recordatorio[1] == "pendiente":
+                recordatorios_pendientes.append(recordatorio[0])
+
+        return recordatorios_pendientes
+
+    def eliminar_recordatorio(self, texto):
+        posicion = 0
+
+        for recordatorio in self.recordatorios:
+            if recordatorio[0] == texto:
+                del(self.recordatorios[posicion])
+                return True
+
+            posicion += 1
+
+        return False
+
+
+# EJERCICIO 11 — CONTADOR DE VISITAS
+
+class contadorvisitas:
+    def __init__(self):
+        self.visitas_paginas = {}
+
+    def registro(self, pagina):
+        if pagina not in self.visitas_paginas:
+            self.visitas_paginas[pagina] = 1
+
+        else:
+            self.visitas_paginas[pagina] += 1
+
+    def pagina_visitada(self):
+        pagina_mas_visitada = ""
+        cantidad_mayor_visitas = None
+
+        for pagina, cantidad_visitas in self.visitas_paginas.items():
+            if cantidad_mayor_visitas == None or cantidad_mayor_visitas < cantidad_visitas:
+                pagina_mas_visitada = pagina
+                cantidad_mayor_visitas = cantidad_visitas
+
+        return pagina_mas_visitada
+
+    def consultar_visitas(self, pagina):
+        cantidad_visitas = self.visitas_paginas[pagina]
+
+        return cantidad_visitas
+
+
+# EJERCICIO 12 — RANGOS PARES
+
+class rangopares:
+    def __init__(self):
+        self.numeros_pares = set()
+
+    def pares(self, inicio, fin):
+        pares_encontrados = []
+
+        for numero in range(inicio, fin + 1):
+            if numero % 2 == 0:
+                pares_encontrados.append(numero)
+
+        return tuple(pares_encontrados)
+
+    def varios(self, *args):
+        self.numeros_pares = set()
+
+        for rango in args:
+            pares_del_rango = self.pares(rango[0], rango[1])
+
+            for numero in pares_del_rango:
+                self.numeros_pares.add(numero)
+
+        return list(self.numeros_pares)
+
+
+# EJERCICIO 13 — UNIÓN DE LISTAS
+
+class unionlistas:
+
+    def unir(self, lista1, lista2):
+        elementos_unicos = set()
+
+        for elemento in lista1:
+            elementos_unicos.add(elemento)
+
+        for elemento in lista2:
+            elementos_unicos.add(elemento)
+
+        return list(elementos_unicos)
+
+    def varias(self, *args):
+        if len(args) == 0:
+            return []
+
+        lista_unida = args[0]
+
+        for lista in args[1:]:
+            lista_unida = self.unir(lista_unida, lista)
+
+        return lista_unida
+
+
+# EJERCICIO 14 — REGISTRO DE PUNTAJES
+
+class registropuntajes:
+    def __init__(self):
+        self.puntajes_jugadores = {}
+
+    def registro(self, jugador, puntaje):
+        if jugador not in self.puntajes_jugadores:
+            self.puntajes_jugadores[jugador] = puntaje
+
+    def mayor_igual(self, minimo):
+        jugadores_encontrados = []
+
+        for jugador, puntaje in self.puntajes_jugadores.items():
+            if puntaje >= minimo:
+                jugadores_encontrados.append(jugador)
+
+        return jugadores_encontrados
+
+    def menor_puntuacion(self):
+        puntaje_menor = None
+        jugador_menor = ""
+        puntuacion_menor = 0
+
+        for jugador, puntaje in self.puntajes_jugadores.items():
+            if puntaje_menor == None or puntaje < puntaje_menor:
+                jugador_menor = jugador
+                puntuacion_menor = puntaje
+                puntaje_menor = puntaje
+
+        return (jugador_menor, puntuacion_menor)
+
+
+# EJERCICIO 15 — BUSCADOR DE MÚLTIPLOS
+
+class MultiploFinder:
+    def __init__(self):
+        self.multiplos_por_numero = {}
+
+    def encontrar_multiplos(self, numero, limite):
+        multiplos_encontrados = []
+
+        for valor in range(numero, limite + 1):
+            if valor % numero == 0:
+                multiplos_encontrados.append(valor)
+
+        return tuple(multiplos_encontrados)
+
+    def es_multiplo(self, numero, valor):
+        if valor % numero == 0:
+            return True
+        else:
+            return False
+
+    def varios(self, limite, *args):
+        for numero in args:
+            self.multiplos_por_numero[numero] = self.encontrar_multiplos(numero, limite)
+
+        return self.multiplos_por_numero
+
+
+# EJERCICIO 16 — REEMPLAZADOR DE VOCALES
+
+class ReemplazadorVocales:
+    def __init__(self):
+        self.palabras_reemplazadas = {}
+
+    def reemplazar_vocal(self, letra):
+        if letra.lower() == "a" or letra.lower() == "e" or letra.lower() == "i" or letra.lower() == "o" or letra.lower() == "u":
+            return "*"
+        else:
+            return letra
+
+    def reemplazar_palabra(self, palabra):
+        palabra_resultado = ""
+
+        for letra in palabra:
+            palabra_resultado = palabra_resultado + self.reemplazar_vocal(letra)
+
+        self.palabras_reemplazadas[palabra] = palabra_resultado
+
+        return palabra_resultado
+
+
+# EJERCICIO 17 — CLASIFICADOR DE ALTURAS
+
+class ClasificadorAlturas:
+    def __init__(self):
+        self.alturas_clasificadas = {
+            "baja": [],
+            "media": [],
+            "alta": []
+        }
+
+    def clasificar(self, altura):
+        if altura < 150:
+            return "baja"
+
+        elif altura < 180:
+            return "media"
+
+        else:
+            return "alta"
+
+    def varias_alturas(self, *args):
+        for altura in args:
+            categoria_altura = self.clasificar(altura)
+            self.alturas_clasificadas[categoria_altura].append(altura)
+
+        return self.alturas_clasificadas
+
+    def promedio_categoria(self, categoria):
+        suma_alturas = 0
+
+        for altura in self.alturas_clasificadas[categoria]:
+            suma_alturas = suma_alturas + altura
+
+        promedio_alturas = suma_alturas / len(self.alturas_clasificadas[categoria])
+
+        return promedio_alturas
+
+
+# EJERCICIO 18 — CALCULADOR DE PERÍMETROS
+
+class CalculadorPerimetro:
+    def __init__(self):
+        self.perimetros_calculados = []
+
+    def calcular(self, rectangulo):
+        base = rectangulo[0]
+        altura = rectangulo[1]
+
+        perimetro_rectangulo = 2 * (base + altura)
+
+        self.perimetros_calculados.append(perimetro_rectangulo)
+
+        return perimetro_rectangulo
+
+    def menor_perimetro(self, *args):
+        rectangulo_menor = ()
+        perimetro_menor = None
+
+        for rectangulo in args:
+            perimetro_rectangulo = self.calcular(rectangulo)
+
+            if perimetro_menor == None or perimetro_rectangulo < perimetro_menor:
+                rectangulo_menor = rectangulo
+                perimetro_menor = perimetro_rectangulo
+
+        return rectangulo_menor
+
+
+# EJERCICIO 19 — BIBLIOTECA
+
+class Biblioteca:
+    def __init__(self):
+        self.libros = {}
+
+    def agregar_copias(self, libro, cantidad):
+        if libro in self.libros:
+            self.libros[libro] = self.libros[libro] + cantidad
+
+        else:
+            self.libros[libro] = cantidad
+
+    def prestar_libro(self, libro):
+        if libro in self.libros and self.libros[libro] > 0:
+            self.libros[libro] = self.libros[libro] - 1
+            return True
+
+        else:
+            return False
+
+    def pocas_copias(self, minimo):
+        libros_con_pocas_copias = []
+
+        for libro, cantidad in self.libros.items():
+            if cantidad < minimo:
+                libros_con_pocas_copias.append(libro)
+
+        return libros_con_pocas_copias
+
+
+# EJERCICIO 20 — BUSCADOR DE PALABRAS
+
+class BuscadorPalabras:
+    def __init__(self):
+        self.palabras_analizadas = []
+
+    def buscar_patron(self, texto, patron):
+        palabras_encontradas = []
+        palabras_texto = texto.split()
+
+        for palabra in palabras_texto:
+            self.palabras_analizadas.append(palabra)
+
+            if palabra.endswith(patron):
+                palabras_encontradas.append(palabra)
+
+        return palabras_encontradas
+
+    def agrupar_inicial(self, texto):
+        palabras_por_inicial = {}
+        palabras_texto = texto.split()
+
+        for palabra in palabras_texto:
+            self.palabras_analizadas.append(palabra)
+
+            inicial = palabra[0]
+
+            if inicial in palabras_por_inicial:
+                palabras_por_inicial[inicial].append(palabra)
+
+            else:
+                palabras_por_inicial[inicial] = [palabra]
+
+        return palabras_por_inicial
+
+    def palabras_unicas(self):
+        return set(self.palabras_analizadas)
